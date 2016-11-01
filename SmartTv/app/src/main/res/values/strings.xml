@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">SmartTv</string>
+    <!--等待提示-->
+    <string name="string_waiting_prompt">加载中，请稍后&#8230;</string>
+
+    <!-- 通用常规文字 -->
+    <string name="string_confirm">确定</string>
+    <string name="string_cancel">取消</string>
+
+    <!-- 版本限制 -->
+    <string name="version_restrictions_text">系统版本太低，程序无法运行。最低系统要求Android4.1！</string>
+    <string name="exit_app">确定要退出程序吗？</string>
+
+    <!-- 版本升级相关文字 -->
+    <string name="dialog_version_check_text">发现新版本是否升级？</string>
+    <string name="dialog_version_check_confirm">确认升级</string>
+    <string name="dialog_version_check_cancel">取消</string>
+    <string name="dialog_version_check_quit">退出程序</string>
+    <string name="notification_version_check_down">开始下载更新&#8230;</string>
+    <string name="notification_version_check_downloading">更新下载中&#8230;</string>
+    <string name="notification_version_check_download">更新下载完成</string>
+    <string name="notification_version_check_downfail">更新下载失败</string>
+    <string name="notification_version_check_click_install">点击安装应用</string>
+    <!--图片选额-->
+    <string name="load_img_error">获取图片失败</string>
+
+</resources>

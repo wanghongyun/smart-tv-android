@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/dialog_version_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.2"
+        android:minHeight="10dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/dialog_version_check_text"
+        android:textColor="@color/dialog_version_check_text"
+        android:textSize="16sp" />
+
+    <View
+        style="@style/style_line_base_horizontal"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/dialog_version_cancel"
+            style="@style/style_dialog_btn"
+            android:text="@string/dialog_version_check_cancel" />
+
+        <View
+            style="@style/style_line_base_vertical"
+            android:background="@color/line_color" />
+
+        <TextView
+            android:id="@+id/dialog_version_confirm"
+            style="@style/style_dialog_btn"
+            android:text="@string/dialog_version_check_confirm"
+            android:textColor="@color/dialog_version_check_confirm_text" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主题景色 -->
+    <color name="theme_color">#3EC3D6</color>
+    <!-- bar状态栏背景色 -->
+    <color name="bar_bg_color">#1E8DFF</color>
+    <!-- bar状态栏背景色 -->
+    <color name="bar_bg_dark_color">#1E8DFF</color>
+    <!-- bar状态栏背景色 -->
+    <color name="bar_bg_light_color">#1E8DFF</color>
+    <!-- 页面背景色 -->
+    <color name="content_bg_color">#E1E1E1</color>
+
+    <!--标题背景颜色-->
+    <color name="bar_title_bg_color">#FFFFFF</color>
+    <!--标题文字颜色-->
+    <color name="bar_title_text_color">#444444</color>
+
+
+
+
+    <!-- 确认弹框颜色 -->
+    <color name="dialog_confirm_text">#666666</color>
+
+    <!--line-->
+    <color name="line_color">#222222</color>
+    <color name="line_color_2">#CFCED2</color>
+
+    <!-- 更新包下载进度条颜色值 -->
+    <color name="dialog_down_progressbar_color">#FED201</color>
+    <color name="dialog_down_progressbar_color_bg">#CCCCCC</color>
+    <!-- 版本升级框文字颜色 -->
+    <color name="dialog_version_check_text">#121313</color>
+    <color name="dialog_version_check_line">#e2e2e2</color>
+    <color name="dialog_version_check_confirm_text">#212121</color>
+
+    <!-- 常规颜色定义,注释在颜色值的下面 -->
+    <color name="transparent">#00000000</color>
+    <!--^ 透明色 -->
+    <color name="white">#FFFFFF</color>
+    <!--^ 红色 -->
+    <color name="red">#FF0000</color>
+    <!--^ 灰色 -->
+    <color name="gray">#808080</color>
+
+</resources>

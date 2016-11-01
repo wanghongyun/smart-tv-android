@@ -1,0 +1,4 @@
+<resources>
+    <!-- 标题高度 -->
+    <dimen name="title_height">50dp</dimen>
+</resources>

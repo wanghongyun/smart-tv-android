@@ -1,0 +1,116 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion Integer.parseInt(project.COMPILE_SDK_VERSION)
+    buildToolsVersion project.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId "com.weibuildus.smarttv"
+        minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
+        versionCode Integer.parseInt(project.APP_VERSION_CODE)
+        versionName project.APP_VERSION_NAME
+
+        /**
+         * 必须加，否则64位手机无法加载so文件
+         */
+        ndk {
+            abiFilters "x86"
+            abiFilters "armeabi"
+        }
+    }
+
+    //签名
+    signingConfigs {
+        debug {
+            storeFile file(project.KEYSTORE_DEBUG)
+        }
+        release {
+            storeFile file(project.KEYSTORE_RELEASE)
+            storePassword project.KEYSTORE_RELEASE_PASSWORD
+            keyAlias project.KEYSTORE_RELEASE_ALIAS
+            keyPassword project.KEYSTORE_RELEASE_ALIAS_PASSWORD
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            //接口地址
+            buildConfigField 'String', 'BASE_URL', project.BSAE_URL_DEBUG
+            //页面地址
+            buildConfigField 'String', 'BASE_PAGE_URL', project.BSAE_PAGE_URL_DEBUG
+            //log开关
+            buildConfigField 'boolean', 'LOG_SWITCH', project.LOG_SWITCH_DEBUG
+            //签名配置
+            signingConfig signingConfigs.debug
+            //是否混淆
+            minifyEnabled false
+            //混淆规则
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            //接口地址
+            buildConfigField 'String', 'BASE_URL', project.BSAE_URL_RELEASE
+            //页面地址
+            buildConfigField 'String', 'BASE_PAGE_URL', project.BSAE_PAGE_URL_RELEASE
+            //log开关
+            buildConfigField 'boolean', 'LOG_SWITCH', project.LOG_SWITCH_RELEASE
+            //签名配置
+            signingConfig signingConfigs.release
+            //是否混淆
+            minifyEnabled false
+            //混淆规则
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+    //多渠道打包
+    productFlavors {
+        //自己平台渠道
+        bandou {
+            manifestPlaceholders = [CHANNEL_VALUE: "smarttv"]
+            buildConfigField 'String', 'CHANNEL_VALUE',"\"bandou\""
+        }
+        //百度
+        baidu {
+            manifestPlaceholders = [CHANNEL_VALUE: "baidu"]
+            buildConfigField 'String', 'CHANNEL_VALUE',"\"baidu\""
+        }
+    }
+
+    lintOptions{
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    //http
+    compile files('libs/httpmime-4.1.2.jar')
+    compile files('libs/org.apache.http.legacy.jar')
+    //JSON串解析
+    compile 'com.google.code.gson:gson:2.2.4'
+    //图片加载
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    //GIF
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.1'
+    //weex依赖
+    compile 'com.alibaba:fastjson:1.2.15'
+    //WEEX SDK 源码
+    compile project(':weexSdk161018')
+    //图片获取源码
+    compile project(':ImageSelector')
+}
