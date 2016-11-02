@@ -31,7 +31,7 @@
         </activity>
         <activity
             android:name=".activitys.WeexActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="false"
             android:windowSoftInputMode="adjustPan|stateHidden" />
     </application> 
 

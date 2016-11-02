@@ -20,9 +20,7 @@ import android.support.v4.app.ActivityCompat;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
 import com.taobao.weex.ui.component.WXBasicComponentType;
-import com.taobao.weex.utils.WXViewUtils;
 import com.weibuildus.smarttv.BuildConfig;
-import com.weibuildus.smarttv.R;
 import com.weibuildus.smarttv.dialog.ConfirmDialog;
 import com.weibuildus.smarttv.util.KeyStore;
 import com.weibuildus.smarttv.util.Logger;
@@ -91,7 +89,7 @@ public class SmartTvApplication extends Application {
             //播放器
             WXSDKEngine.registerComponent(WXBasicComponentType.VIDEO, WXVideo.class);
             //自定义Module
-            WXSDKEngine.registerModule("BandouModule", SmartTvModule.class);
+            WXSDKEngine.registerModule("STModule", SmartTvModule.class);
         } catch (Exception e) {
             e.printStackTrace();
         }

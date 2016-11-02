@@ -90,7 +90,7 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
+        if(getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE){
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏
         }else{
@@ -139,13 +139,13 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
         //附加数据
         Map map = data==null?new HashMap():new Gson().fromJson(data, Map.class);
         map.put("AndroidStatusBarHeight",getStatusBarHeight());
-        map.put("isFullScreen",getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        map.put("isFullScreen",getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         data = new Gson().toJson(map);
         //重新注册 weex SDK
         mWXSDKInstance = new WXSDKInstance(this);
         mWXSDKInstance.registerRenderListener(this);
         //加载网络js
-        int height = getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE?(getResources().getDisplayMetrics().heightPixels)
+        int height = getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE?(getResources().getDisplayMetrics().heightPixels)
                 :(getResources().getDisplayMetrics().heightPixels-getStatusBarHeight());
         mWXSDKInstance.renderByUrl("Bandou_Weex", getPageParameter(), null, data==null?getIntent().getStringExtra("data"):data,-1, height,
                 WXRenderStrategy.APPEND_ASYNC);
@@ -478,11 +478,11 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
 
     public void setFullScreen (boolean isFullScreen){
         if(isFullScreen){
-            if(getRequestedOrientation()!= ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            if(getRequestedOrientation()!= ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE){
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
             }
         }else{
-            if(getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
+            if(getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE){
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             }
         }
