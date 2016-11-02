@@ -75,31 +75,31 @@ public class SmartTvModule extends WXModule {
         String value =  KeyStore.getInstance(mWXSDKInstance.getContext()).get("BandouModule_" + key, defValue);
         WXSDKManager.getInstance().getWXBridgeManager().callback(mWXSDKInstance.getInstanceId(), callbackId, value);
     }
-//
-//    /**
-//     * 支付
-//     * @param map
-//     * @param callbackId
-//     */
-//    @WXModuleAnno
-//    public void pay(Map<String,Object> map,  String callbackId){
-//        if(mWXSDKInstance.getContext() instanceof WeexActivity){
-//            WeexActivity weexActivity = (WeexActivity)mWXSDKInstance.getContext();
-//            weexActivity.pay(map, callbackId);
-//        }
-//    }
-//
-//    /**
-//     * 返回页面
-//     */
-//    @WXModuleAnno
-//    public void toBack(Map<String,Object> map) {
-//        if(mWXSDKInstance.getContext() instanceof WeexActivity){
-//            WeexActivity weexActivity = (WeexActivity)mWXSDKInstance.getContext();
-//            weexActivity.toBack(map);
-//        }
-//    }
-//
+
+    /**
+     * 支付
+     * @param map
+     * @param callbackId
+     */
+    @WXModuleAnno
+    public void pay(Map<String,Object> map,  String callbackId){
+        if(mWXSDKInstance.getContext() instanceof WeexActivity){
+            WeexActivity weexActivity = (WeexActivity)mWXSDKInstance.getContext();
+            weexActivity.pay(map, callbackId);
+        }
+    }
+
+    /**
+     * 返回页面
+     */
+    @WXModuleAnno
+    public void toBack(Map<String,Object> map) {
+        if(mWXSDKInstance.getContext() instanceof WeexActivity){
+            WeexActivity weexActivity = (WeexActivity)mWXSDKInstance.getContext();
+            weexActivity.toBack(map);
+        }
+    }
+
     /**
      * 选择日期
      * @param map
@@ -171,14 +171,25 @@ public class SmartTvModule extends WXModule {
 //    public void setToBackFlag(String flag){
 //
 //    }
-//
-//    /**
-//     * @param log
-//     */
-//    @WXModuleAnno
-//    public void log(String log){
-//        System.out.println(log);
-//    }
+
+    /**
+     * @param log
+     */
+    @WXModuleAnno
+    public void log(String log){
+        System.out.println(log);
+    }
+
+    /**
+     * 设置是否全屏
+     */
+    @WXModuleAnno
+    public void setFullScreen (boolean isFullScreen){
+        if(mWXSDKInstance.getContext() instanceof WeexActivity){
+            WeexActivity weexActivity = (WeexActivity)mWXSDKInstance.getContext();
+            weexActivity.setFullScreen(isFullScreen);
+        }
+    }
 
 
 

@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -87,6 +90,13 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏
+        }else{
+            getWindow().clearFlags(
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
         //初始化页面和标题
         setContentView(R.layout.activity_weex);
         //初始化View
@@ -129,12 +139,15 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
         //附加数据
         Map map = data==null?new HashMap():new Gson().fromJson(data, Map.class);
         map.put("AndroidStatusBarHeight",getStatusBarHeight());
+        map.put("isFullScreen",getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         data = new Gson().toJson(map);
         //重新注册 weex SDK
         mWXSDKInstance = new WXSDKInstance(this);
         mWXSDKInstance.registerRenderListener(this);
         //加载网络js
-        mWXSDKInstance.renderByUrl("Bandou_Weex", getPageParameter(), null, data==null?getIntent().getStringExtra("data"):data,-1, getResources().getDisplayMetrics().heightPixels-getStatusBarHeight(),
+        int height = getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE?(getResources().getDisplayMetrics().heightPixels)
+                :(getResources().getDisplayMetrics().heightPixels-getStatusBarHeight());
+        mWXSDKInstance.renderByUrl("Bandou_Weex", getPageParameter(), null, data==null?getIntent().getStringExtra("data"):data,-1, height,
                 WXRenderStrategy.APPEND_ASYNC);
         //关闭错误页和内容页，展示等待页和空白标题
         weexErrorLayout.setVisibility(View.GONE);
@@ -307,6 +320,80 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
         }
     }
 
+    /**
+     * 支付
+     * @param map
+     * @param callbackId
+     */
+    public void pay(Map<String,Object> map,  String callbackId){
+//        weexPayCallbackId = callbackId;
+//        if(map!=null){
+//            Object type = map.get("type");
+//            //注册支付结果接受广播
+//            if(receiverPayResult == null){
+//                receiverPayResult = new ReceiverPayResult();
+//                IntentFilter intentFilter = new IntentFilter();
+//                intentFilter.addAction(WXApiUtil.WX_PAY_BROADCAST_ACTION);
+//                registerReceiver(receiverPayResult, intentFilter);
+//            }
+//            //微信支付
+//            if(type!=null && type.toString().indexOf("wexin")!=-1){
+//                Object param = map.get("param");
+//                if(param!=null){
+//                    OrderPay orderPay = new Gson().fromJson(new Gson().toJson(param), OrderPay.class);
+//                    WXPayUtil.wxPayrequest(this, WXApiUtil.IWXAPI_APP_ID, orderPay.partnerid, orderPay.prepayid, orderPay._package, orderPay.noncestr, orderPay.timestamp, orderPay.sign);
+//                    return;
+//                }
+//            }
+//            //支付宝支付
+//            if(type!=null && type.toString().indexOf("ali")!=-1){
+//                Object param = map.get("param");
+//                //System.out.println("支付宝支付数据：=="+param.toString());
+//                if(param!=null){
+//                    AlipayUtil.alipayPay(this, param.toString(), new AlipayUtil.AlipayUtilCallBack() {
+//                        @Override
+//                        public void payResultStatus(int payresultstatus) {
+//                            if (payresultstatus == AlipayUtil.AlipayUtilCallBack.PAY_SUCCESS) {
+//                                showToast("支付成功");
+//                            }
+//                            if (payresultstatus == AlipayUtil.AlipayUtilCallBack.PAY_FAIL) {
+//                                showToast("支付失败");
+//                            }
+//                            if (payresultstatus == AlipayUtil.AlipayUtilCallBack.PAY_WAITING) {
+//                                showToast("支付待确认");
+//                            }
+//                            if(weexPayCallbackId!=null){
+//                                WXSDKManager.getInstance().getWXBridgeManager().callback(mWXSDKInstance.getInstanceId(), weexPayCallbackId, new Gson().fromJson( "{\"type\":\"ali\",\"success\":"+(payresultstatus == AlipayUtil.AlipayUtilCallBack.PAY_SUCCESS)+"}",Map.class));
+//                                weexPayCallbackId = null;
+//                            }
+//                        }
+//                    });
+//                    return;
+//                }
+//            }
+//        }
+//        showToast("未知支付方式");
+//        WXSDKManager.getInstance().getWXBridgeManager().callback(mWXSDKInstance.getInstanceId(), callbackId, new Gson().fromJson("{\"type\":\"unknown\",\"success\":false}", Map.class));
+    }
+
+    /**
+     * 返回页面
+     * @param map
+     */
+    public void toBack(Map<String,Object> map){
+        Object toBackFlag =  map.get("toBackFlag");
+        if(toBackFlag==null || toBackFlag.toString().trim().length()==0){
+            setResult(RESULT_CANCELED);
+        }else{
+            String data =  new Gson().toJson(map).toString();
+            Intent intent = new Intent();
+            intent.putExtra("data",data);
+            //intent.putExtra("mainItemIndex", getIntent().getIntExtra("mainItemIndex", 0));
+            setResult(RESULT_OK, intent);
+        }
+        finish();
+        overridePendingTransition(R.anim.anim_alpha_in, R.anim.anim_alpha_out);
+    }
 
     /**
      * 选择时间
@@ -387,6 +474,19 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
         if(waitingDialog!=null){
             waitingDialog.dismiss();
         }
+    }
+
+    public void setFullScreen (boolean isFullScreen){
+        if(isFullScreen){
+            if(getRequestedOrientation()!= ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            }
+        }else{
+            if(getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            }
+        }
+
     }
 
    //#########################其他工具方法###################################################################

@@ -209,6 +209,7 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
@@ -229,6 +230,8 @@ import com.weibuildus.smarttv.weex.view.WXVideoView;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @Component(lazyload = false)
 
@@ -242,6 +245,7 @@ public class WXVideo extends WXComponent<FrameLayout> {
    **/
   boolean mPrepared;
   private boolean mError;
+  private Timer timerPlayTime;
 
   @Deprecated
   public WXVideo(WXSDKInstance instance, WXDomObject dom, WXVContainer parent, String instanceId, boolean isLazy) {
@@ -316,23 +320,26 @@ public class WXVideo extends WXComponent<FrameLayout> {
         });
 
         //播放进度每秒监听
-        final Handler handler = new Handler();
-        final Runnable runnable =  new Runnable() {
-          int buffer, currentPosition, duration;
-          public void run() {
+        timerPlayTime = new Timer();
+        final Handler handler = new Handler(){
+          @Override
+          public void handleMessage(Message msg) {
+            super.handleMessage(msg);
             Map<String, Object> params = new HashMap<>(2);
             //当前位置 毫秒
             params.put("currentposition", mediaPlayer.getCurrentPosition());
             //总长度 毫秒
             params.put("duration", mediaPlayer.getDuration());
             WXSDKManager.getInstance().fireEvent(mInstanceId, getRef(), "seek", params);
-            if(mStopped){
-              return;
-            }
-            handler.postDelayed(this, 1000);
           }
         };
-        handler.postDelayed(runnable, 0);
+        TimerTask task = new TimerTask(){
+          @Override
+          public void run() {
+            handler.sendEmptyMessage(1);
+          }
+        };
+        timerPlayTime.schedule(task, 0, 1000);
         mStopped = false;
       }
     });
@@ -405,6 +412,9 @@ public class WXVideo extends WXComponent<FrameLayout> {
 
   @Override
   public void destroy() {
+    if(timerPlayTime!=null){
+      timerPlayTime.cancel();
+    }
     super.destroy();
   }
 
