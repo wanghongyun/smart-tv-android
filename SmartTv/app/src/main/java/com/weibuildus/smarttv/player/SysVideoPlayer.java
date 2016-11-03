@@ -236,7 +236,11 @@ public class SysVideoPlayer extends LinearLayout implements
 						mediaPlayer.setDisplay(holder);
 						mediaPlayer
 								.setOnSysPlayerEventListener(SysVideoPlayer.this);
-						play();
+						if(mMediaPlayerStarted){
+							mMediaPlayerStarted = false;
+							play();
+							mediaPlayer.seekTo(mediaPlayer.getCurrentPosition());
+						}
 						changeSize(SURFACE_NONE);
 					} else {
 						// 获取选择后的播放器对象
@@ -269,7 +273,10 @@ public class SysVideoPlayer extends LinearLayout implements
 			public void surfaceDestroyed(SurfaceHolder holder) {
 				if (mediaPlayer != null) {
 					Logger.d(LOGTAG, "播放器视图销毁");
-					pause();
+					if(mMediaPlayerStarted){
+						pause();
+						mMediaPlayerStarted = true;
+					}
 					mediaPlayer.setDisplay(null);
 				}
 			}
