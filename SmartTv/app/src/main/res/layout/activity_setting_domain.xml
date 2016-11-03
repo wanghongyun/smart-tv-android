@@ -23,7 +23,7 @@
         android:id="@+id/clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="清除缓存数据"
+        android:text="重置域名"
         android:layout_below="@+id/button"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
