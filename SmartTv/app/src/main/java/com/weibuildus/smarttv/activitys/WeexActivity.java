@@ -62,7 +62,7 @@ import pl.droidsonroids.gif.GifImageView;
 public class WeexActivity extends AppCompatActivity implements IWXRenderListener, View.OnClickListener {
 
     //默认首页
-    public static final String WEEX_MAIN_PAGE_JS = "dist/first.js";
+    public static final String WEEX_MAIN_PAGE_JS = "dist/main.js";
     //页面传递参数
     public static final String PAGE_PARAMETER = "page";
 

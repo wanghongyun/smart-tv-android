@@ -10,8 +10,7 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:layout_centerInParent="true"
-        android:paddingBottom="80dp"
-        android:src="@mipmap/welcome_logo"/>
+        android:paddingBottom="80dp"/>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

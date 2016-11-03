@@ -182,8 +182,8 @@ public class WelcomeActivity extends AppCompatActivity {
      * 启动流程5 计算启动时间，
      */
     public void waiting() {
-        //计算总时间，此页面至少延迟2秒
-        ThreadPool.executeDelay((tempTime = 2000 - (System.currentTimeMillis() - tempTime)) < 0 ? 0 : tempTime, new ThreadPool.ThreadPoolMethodCallBack() {
+        //计算总时间，此页面至少延迟2秒  2000
+        ThreadPool.executeDelay((tempTime = 0 - (System.currentTimeMillis() - tempTime)) < 0 ? 0 : tempTime, new ThreadPool.ThreadPoolMethodCallBack() {
             @Override
             public void callBack(String methodName, Object object) {
                 complete();
