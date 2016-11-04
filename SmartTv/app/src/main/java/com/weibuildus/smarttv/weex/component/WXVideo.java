@@ -260,4 +260,25 @@ public class WXVideo extends WXComponent {
     }
     wxVideoView.open(url,null);
   }
+
+  @WXComponentProp(name = "play")
+  public void play(String play){
+    if(play!=null){
+      wxVideoView.play();
+    }
+  }
+
+  @WXComponentProp(name = "pause")
+  public void pause(String pause){
+    if(pause!=null){
+      wxVideoView.pause();
+    }
+  }
+
+  @WXComponentProp(name = "seekTo")
+  public void seekTo(int seekTo){
+    if(seekTo>=0){
+      wxVideoView.seekTo(seekTo);
+    }
+  }
 }

@@ -84,6 +84,8 @@ public class SysVideoPlayer extends LinearLayout implements
 	/** 控制面板双击时间记录 */
 	@SuppressWarnings("unused")
 	private long layoutControlTime = 0;
+	//显示默认控制器
+	private boolean showControl = true;
 
 	/** 播放时间位置 */
 	private static int player_position = 0;
@@ -236,7 +238,7 @@ public class SysVideoPlayer extends LinearLayout implements
 						mediaPlayer.setDisplay(holder);
 						mediaPlayer
 								.setOnSysPlayerEventListener(SysVideoPlayer.this);
-						if(mMediaPlayerStarted){
+						if (mMediaPlayerStarted) {
 							mMediaPlayerStarted = false;
 							play();
 							mediaPlayer.seekTo(mediaPlayer.getCurrentPosition());
@@ -261,7 +263,7 @@ public class SysVideoPlayer extends LinearLayout implements
 			// surfaceDestroyed调用后此方法调用一次到两次
 			@Override
 			public void surfaceChanged(SurfaceHolder holder, int format,
-					int width, int height) {
+									   int width, int height) {
 				if (mediaPlayer != null) {
 					mediaPlayer.setDisplay(holder);
 					changeSize(SURFACE_NONE);
@@ -273,7 +275,7 @@ public class SysVideoPlayer extends LinearLayout implements
 			public void surfaceDestroyed(SurfaceHolder holder) {
 				if (mediaPlayer != null) {
 					Logger.d(LOGTAG, "播放器视图销毁");
-					if(mMediaPlayerStarted){
+					if (mMediaPlayerStarted) {
 						pause();
 						mMediaPlayerStarted = true;
 					}
@@ -604,6 +606,10 @@ public class SysVideoPlayer extends LinearLayout implements
 			mediaPlayer.seekTo(position);
 	}
 
+	public void showControl(boolean isShow){
+		this.showControl = isShow;
+	}
+
 	/**
 	 * 是否正在播放
 	 * 
@@ -693,7 +699,7 @@ public class SysVideoPlayer extends LinearLayout implements
 	}
 
 	public interface OnSysVideoPlayerEventListener {
-		public void onSysVideoOpenError();
+	  //public void onSysVideoOpenError();
 		
 		public void onSysVideoPlay();
 		
@@ -710,7 +716,7 @@ public class SysVideoPlayer extends LinearLayout implements
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.player_control_layout:
-			if (layoutControlBottom != null) {
+			if (layoutControlBottom != null && showControl) {
 				if (layoutControlBottom.getVisibility() == View.VISIBLE) {
 					layoutControlBottom.setVisibility(View.GONE);
 				} else {
