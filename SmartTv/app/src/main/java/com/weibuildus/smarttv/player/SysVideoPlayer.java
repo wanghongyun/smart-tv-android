@@ -341,6 +341,16 @@ public class SysVideoPlayer extends LinearLayout implements
 							seekBar.setSecondaryProgress(buffer_position);
 						//}
 					}
+					if (eventListener != null && mediaPlayer != null){
+						int progress = msg.arg1;
+						if(progress > 100){
+							progress = 100;
+						}
+						if(progress<0){
+							progress = 0;
+						}
+						eventListener.onSysVideoBufferingUpdate(mediaPlayer.getDuration(),((int)(mediaPlayer.getDuration()*(progress/100.00f))));
+					}
 					break;
 				}
 					// 完成
@@ -398,6 +408,9 @@ public class SysVideoPlayer extends LinearLayout implements
 							text_length.setText(intTimeToString(player_length));
 							}
 						//}
+					}
+					if (eventListener != null && mediaPlayer != null){
+						eventListener.onSysVideoProgressUpdate(mediaPlayer.getDuration(), mediaPlayer.getCurrentPosition());
 					}
 					break;
 				}
@@ -606,6 +619,14 @@ public class SysVideoPlayer extends LinearLayout implements
 			mediaPlayer.seekTo(position);
 	}
 
+	/**
+	 * 播放总时长
+	 * @return
+	 */
+	public int getDuration(){
+		return mediaPlayer.getDuration();
+	}
+
 	public void showControl(boolean isShow){
 		this.showControl = isShow;
 	}
@@ -699,8 +720,7 @@ public class SysVideoPlayer extends LinearLayout implements
 	}
 
 	public interface OnSysVideoPlayerEventListener {
-	  //public void onSysVideoOpenError();
-		
+
 		public void onSysVideoPlay();
 		
 		public boolean onSysVideoPrepared();
@@ -710,6 +730,10 @@ public class SysVideoPlayer extends LinearLayout implements
 		public void onSysVideoCompletion();
 
 		public void onSysVideoError();
+
+		public void onSysVideoBufferingUpdate(int duration, int buffer_position);
+
+		public void onSysVideoProgressUpdate(int duration, int currentposition);
 	}
 
 	@Override
@@ -720,7 +744,7 @@ public class SysVideoPlayer extends LinearLayout implements
 				if (layoutControlBottom.getVisibility() == View.VISIBLE) {
 					layoutControlBottom.setVisibility(View.GONE);
 				} else {
-					layoutControlBottom.setVisibility(View.VISIBLE);
+					//layoutControlBottom.setVisibility(View.VISIBLE);
 				}
 			}
 				// // 当前时间
