@@ -615,8 +615,12 @@ public class SysVideoPlayer extends LinearLayout implements
 	 * @param position
 	 */
 	public void seekTo(int position) {
-		if (mediaPlayer != null)
+		if (mediaPlayer != null){
+			if(progressBar!=null){
+				progressBar.setVisibility(View.VISIBLE);
+			}
 			mediaPlayer.seekTo(position);
+		}
 	}
 
 	/**

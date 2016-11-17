@@ -273,7 +273,7 @@ public class WXVideo extends WXComponent implements SysVideoPlayer.OnSysVideoPla
      */
     @WXComponentProp(name = "seekto")
     public void seekTo(double seekTo) {
-        if (seekTo > 0) {
+        if (seekTo < 0) {
             return;
         }
         if (seekTo > 1) {
