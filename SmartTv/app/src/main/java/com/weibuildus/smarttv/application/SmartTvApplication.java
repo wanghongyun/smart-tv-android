@@ -89,7 +89,7 @@ public class SmartTvApplication extends Application {
             //播放器
             WXSDKEngine.registerComponent(WXBasicComponentType.VIDEO, WXVideo.class);
             //自定义Module
-            WXSDKEngine.registerModule("STModule", SmartTvModule.class);
+            WXSDKEngine.registerModule("CustomModule", SmartTvModule.class);
         } catch (Exception e) {
             e.printStackTrace();
         }

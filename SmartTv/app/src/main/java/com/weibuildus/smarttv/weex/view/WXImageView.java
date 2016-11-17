@@ -225,6 +225,7 @@ import com.taobao.weex.ui.view.gesture.WXGesture;
 import com.taobao.weex.ui.view.gesture.WXGestureObservable;
 import com.taobao.weex.utils.WXViewUtils;
 
+import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
 public class WXImageView extends GifImageView implements WXGestureObservable {
@@ -351,7 +352,7 @@ public class WXImageView extends GifImageView implements WXGestureObservable {
 
   @Override
   public void setImageDrawable(Drawable drawable) {
-    setImageDrawable(drawable,false);
+    setImageDrawable(drawable,drawable instanceof GifDrawable);
   }
 
   @Override

@@ -62,6 +62,8 @@ import pl.droidsonroids.gif.GifImageView;
 public class WeexActivity extends AppCompatActivity implements IWXRenderListener, View.OnClickListener {
 
     //默认首页
+    //public static final String WEEX_MAIN_PAGE_JS = "dist/first.js";
+    //public static final String WEEX_MAIN_PAGE_JS = "dist/channel/channel-play-detail.js";
     public static final String WEEX_MAIN_PAGE_JS = "dist/main.js";
     //页面传递参数
     public static final String PAGE_PARAMETER = "page";
@@ -136,8 +138,15 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
     public void refreshPage(String data){
         //置空页面
         weexContentLayout.removeAllViews();
-        //附加数据
-        Map map = data==null?new HashMap():new Gson().fromJson(data, Map.class);
+        //上一页面数据
+        String intentdata =getIntent().getStringExtra("data");
+        //根据上一页面数据创建数据容器对象
+        Map map = intentdata==null?new HashMap():new Gson().fromJson(intentdata, Map.class);
+        //传入数据不为空，加入其中
+        if(data!=null){
+            map.putAll(new Gson().fromJson(data, Map.class));
+        }
+        //再附加页面属性数据
         map.put("AndroidStatusBarHeight",getStatusBarHeight());
         map.put("isFullScreen",getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         data = new Gson().toJson(map);
@@ -147,13 +156,17 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
         //加载网络js
         int height = getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE?(getResources().getDisplayMetrics().heightPixels)
                 :(getResources().getDisplayMetrics().heightPixels-getStatusBarHeight());
-        mWXSDKInstance.renderByUrl("Bandou_Weex", getPageParameter(), null, data==null?getIntent().getStringExtra("data"):data,-1, height,
+        mWXSDKInstance.renderByUrl("Bandou_Weex", getPageParameter(), null, data, -1, height,
                 WXRenderStrategy.APPEND_ASYNC);
         //关闭错误页和内容页，展示等待页和空白标题
         weexErrorLayout.setVisibility(View.GONE);
         weexContentLayout.setVisibility(View.GONE);
-        weexTitleBlank.setVisibility(View.VISIBLE);
         weexWaittingLayout.setVisibility(View.VISIBLE);
+        if(getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE){
+            weexTitleBlank.setVisibility(View.GONE);
+        }else{
+            weexTitleBlank.setVisibility(View.VISIBLE);
+        }
     }
 
     /**
@@ -234,8 +247,12 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
         }
         weexContentLayout.setVisibility(View.GONE);
         weexWaittingLayout.setVisibility(View.GONE);
-        weexTitleBlank.setVisibility(View.VISIBLE);
         weexErrorLayout.setVisibility(View.VISIBLE);
+        if(getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE){
+            weexTitleBlank.setVisibility(View.GONE);
+        }else{
+            weexTitleBlank.setVisibility(View.VISIBLE);
+        }
         //关闭等待
         stopProgress();
     }
