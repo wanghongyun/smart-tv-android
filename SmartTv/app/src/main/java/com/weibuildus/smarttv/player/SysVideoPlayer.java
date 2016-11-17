@@ -692,7 +692,6 @@ public class SysVideoPlayer extends LinearLayout implements
 	@Override
 	public void onCompletion(AbsMediaPlayer mp) {
 		sendMessage(mp, MEDIA_PLAYER_COMPLETION, 0, 0);
-		System.out.println("播放完成");
 	}
 
 	@Override
