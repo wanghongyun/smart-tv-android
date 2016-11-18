@@ -2,17 +2,17 @@
  * Apache License
  * Version 2.0, January 2004
  * http://www.apache.org/licenses/
- * <p>
+ * <p/>
  * TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
- * <p>
+ * <p/>
  * 1. Definitions.
- * <p>
+ * <p/>
  * "License" shall mean the terms and conditions for use, reproduction,
  * and distribution as defined by Sections 1 through 9 of this document.
- * <p>
+ * <p/>
  * "Licensor" shall mean the copyright owner or entity authorized by
  * the copyright owner that is granting the License.
- * <p>
+ * <p/>
  * "Legal Entity" shall mean the union of the acting entity and all
  * other entities that control, are controlled by, or are under common
  * control with that entity. For the purposes of this definition,
@@ -20,24 +20,24 @@
  * direction or management of such entity, whether by contract or
  * otherwise, or (ii) ownership of fifty percent (50%) or more of the
  * outstanding shares, or (iii) beneficial ownership of such entity.
- * <p>
+ * <p/>
  * "You" (or "Your") shall mean an individual or Legal Entity
  * exercising permissions granted by this License.
- * <p>
+ * <p/>
  * "Source" form shall mean the preferred form for making modifications,
  * including but not limited to software source code, documentation
  * source, and configuration files.
- * <p>
+ * <p/>
  * "Object" form shall mean any form resulting from mechanical
  * transformation or translation of a Source form, including but
  * not limited to compiled object code, generated documentation,
  * and conversions to other media types.
- * <p>
+ * <p/>
  * "Work" shall mean the work of authorship, whether in Source or
  * Object form, made available under the License, as indicated by a
  * copyright notice that is included in or attached to the work
  * (an example is provided in the Appendix below).
- * <p>
+ * <p/>
  * "Derivative Works" shall mean any work, whether in Source or Object
  * form, that is based on (or derived from) the Work and for which the
  * editorial revisions, annotations, elaborations, or other modifications
@@ -45,7 +45,7 @@
  * of this License, Derivative Works shall not include works that remain
  * separable from, or merely link (or bind by name) to the interfaces of,
  * the Work and Derivative Works thereof.
- * <p>
+ * <p/>
  * "Contribution" shall mean any work of authorship, including
  * the original version of the Work and any modifications or additions
  * to that Work or Derivative Works thereof, that is intentionally
@@ -59,18 +59,18 @@
  * Licensor for the purpose of discussing and improving the Work, but
  * excluding communication that is conspicuously marked or otherwise
  * designated in writing by the copyright owner as "Not a Contribution."
- * <p>
+ * <p/>
  * "Contributor" shall mean Licensor and any individual or Legal Entity
  * on behalf of whom a Contribution has been received by Licensor and
  * subsequently incorporated within the Work.
- * <p>
+ * <p/>
  * 2. Grant of Copyright License. Subject to the terms and conditions of
  * this License, each Contributor hereby grants to You a perpetual,
  * worldwide, non-exclusive, no-charge, royalty-free, irrevocable
  * copyright license to reproduce, prepare Derivative Works of,
  * publicly display, publicly perform, sublicense, and distribute the
  * Work and such Derivative Works in Source or Object form.
- * <p>
+ * <p/>
  * 3. Grant of Patent License. Subject to the terms and conditions of
  * this License, each Contributor hereby grants to You a perpetual,
  * worldwide, non-exclusive, no-charge, royalty-free, irrevocable
@@ -86,24 +86,24 @@
  * or contributory patent infringement, then any patent licenses
  * granted to You under this License for that Work shall terminate
  * as of the date such litigation is filed.
- * <p>
+ * <p/>
  * 4. Redistribution. You may reproduce and distribute copies of the
  * Work or Derivative Works thereof in any medium, with or without
  * modifications, and in Source or Object form, provided that You
  * meet the following conditions:
- * <p>
+ * <p/>
  * (a) You must give any other recipients of the Work or
  * Derivative Works a copy of this License; and
- * <p>
+ * <p/>
  * (b) You must cause any modified files to carry prominent notices
  * stating that You changed the files; and
- * <p>
+ * <p/>
  * (c) You must retain, in the Source form of any Derivative Works
  * that You distribute, all copyright, patent, trademark, and
  * attribution notices from the Source form of the Work,
  * excluding those notices that do not pertain to any part of
  * the Derivative Works; and
- * <p>
+ * <p/>
  * (d) If the Work includes a "NOTICE" text file as part of its
  * distribution, then any Derivative Works that You distribute must
  * include a readable copy of the attribution notices contained
@@ -120,14 +120,14 @@
  * or as an addendum to the NOTICE text from the Work, provided
  * that such additional attribution notices cannot be construed
  * as modifying the License.
- * <p>
+ * <p/>
  * You may add Your own copyright statement to Your modifications and
  * may provide additional or different license terms and conditions
  * for use, reproduction, or distribution of Your modifications, or
  * for any such Derivative Works as a whole, provided Your use,
  * reproduction, and distribution of the Work otherwise complies with
  * the conditions stated in this License.
- * <p>
+ * <p/>
  * 5. Submission of Contributions. Unless You explicitly state otherwise,
  * any Contribution intentionally submitted for inclusion in the Work
  * by You to the Licensor shall be under the terms and conditions of
@@ -135,12 +135,12 @@
  * Notwithstanding the above, nothing herein shall supersede or modify
  * the terms of any separate license agreement you may have executed
  * with Licensor regarding such Contributions.
- * <p>
+ * <p/>
  * 6. Trademarks. This License does not grant permission to use the trade
  * names, trademarks, service marks, or product names of the Licensor,
  * except as required for reasonable and customary use in describing the
  * origin of the Work and reproducing the content of the NOTICE file.
- * <p>
+ * <p/>
  * 7. Disclaimer of Warranty. Unless required by applicable law or
  * agreed to in writing, Licensor provides the Work (and each
  * Contributor provides its Contributions) on an "AS IS" BASIS,
@@ -150,7 +150,7 @@
  * PARTICULAR PURPOSE. You are solely responsible for determining the
  * appropriateness of using or redistributing the Work and assume any
  * risks associated with Your exercise of permissions under this License.
- * <p>
+ * <p/>
  * 8. Limitation of Liability. In no event and under no legal theory,
  * whether in tort (including negligence), contract, or otherwise,
  * unless required by applicable law (such as deliberate and grossly
@@ -162,7 +162,7 @@
  * work stoppage, computer failure or malfunction, or any and all
  * other commercial damages or losses), even if such Contributor
  * has been advised of the possibility of such damages.
- * <p>
+ * <p/>
  * 9. Accepting Warranty or Additional Liability. While redistributing
  * the Work or Derivative Works thereof, You may choose to offer,
  * and charge a fee for, acceptance of support, warranty, indemnity,
@@ -173,11 +173,11 @@
  * defend, and hold each Contributor harmless for any liability
  * incurred by, or claims asserted against, such Contributor by reason
  * of your accepting any such warranty or additional liability.
- * <p>
+ * <p/>
  * END OF TERMS AND CONDITIONS
- * <p>
+ * <p/>
  * APPENDIX: How to apply the Apache License to your work.
- * <p>
+ * <p/>
  * To apply the Apache License to your work, attach the following
  * boilerplate notice, with the fields enclosed by brackets "[]"
  * replaced with your own identifying information. (Don't include
@@ -186,15 +186,15 @@
  * file or class name and description of purpose be included on the
  * same "printed page" as the copyright notice for easier
  * identification within third-party archives.
- * <p>
+ * <p/>
  * Copyright 2016 Alibaba Group
- * <p>
+ * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p>
+ * <p/>
  * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
+ * <p/>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -254,6 +254,8 @@ public class WXVideo extends WXComponent<FrameLayout> {
     private boolean mPrepared;
     //是否错误
     private boolean mError;
+    //是否停止
+    private boolean mStopped;
 
     @Deprecated
     public WXVideo(WXSDKInstance instance, WXDomObject dom, WXVContainer parent, String instanceId, boolean isLazy) {
@@ -266,6 +268,7 @@ public class WXVideo extends WXComponent<FrameLayout> {
 
     /**
      * 初始化创建播放器
+     *
      * @param context
      * @return
      */
@@ -284,7 +287,7 @@ public class WXVideo extends WXComponent<FrameLayout> {
                 mPrepared = false;
                 mError = true;
                 // TODO: 错误回调
-                onVideoError();
+                onVideoPlayState(Constants.Event.ERROR);
                 if (getDomObject().getEvents().contains(Constants.Event.FAIL)) {
                     WXVideo.this.notify(Constants.Event.FAIL, Constants.Value.STOP);
                 }
@@ -317,15 +320,12 @@ public class WXVideo extends WXComponent<FrameLayout> {
                     }
                 }
 
-                // TODO: 准备就绪回调
-                onVideoPrepared();
-
                 //监听加载进度
                 mediaPlayer.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
                     @Override
                     public void onBufferingUpdate(MediaPlayer mp, int percent) {
                         // TODO: 加载进度回调
-                        onVideoBufferingUpdate(mp.getDuration(), (int) (mp.getDuration() * (percent / 100.00f)));
+                        onVideoLoading(mp.getDuration(), (int) (mp.getDuration() * (percent / 100.00f)));
                     }
                 });
                 mStopped = false;
@@ -336,10 +336,12 @@ public class WXVideo extends WXComponent<FrameLayout> {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
                 // TODO: 播放完成回调
-                onVideoCompletion();
+                onVideoPlayState(Constants.Event.FINISH);
                 if (getDomObject().getEvents().contains(Constants.Event.FINISH)) {
                     WXVideo.this.notify(Constants.Event.FINISH, Constants.Value.STOP);
                 }
+                // TODO: 播放进度回调
+                onVideoProgressing(mMediaPlayer.getDuration(), mMediaPlayer.getCurrentPosition());
             }
         });
         //监听播放暂停
@@ -348,8 +350,8 @@ public class WXVideo extends WXComponent<FrameLayout> {
             @Override
             public void onPause() {
                 // TODO: 暂停状态回调
-                onVideoPause();
-                if (getDomObject().getEvents().contains(Constants.Event.PAUSE)) {
+                onVideoPlayState(Constants.Event.PAUSE);
+                if (getDomObject().getEvents().contains(Constants.Value.PAUSE)) {
                     WXVideo.this.notify(Constants.Event.PAUSE, Constants.Value.PAUSE);
                 }
             }
@@ -357,7 +359,7 @@ public class WXVideo extends WXComponent<FrameLayout> {
             @Override
             public void onStart() {
                 // TODO: 播放状态回调
-                onVideoPlay();
+                onVideoPlayState(Constants.Value.PLAY);
                 if (getDomObject().getEvents().contains(Constants.Event.START)) {
                     WXVideo.this.notify(Constants.Event.START, Constants.Value.PLAY);
                 }
@@ -394,6 +396,10 @@ public class WXVideo extends WXComponent<FrameLayout> {
 
     @Override
     public void destroy() {
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+        }
         super.destroy();
     }
 
@@ -422,6 +428,7 @@ public class WXVideo extends WXComponent<FrameLayout> {
         return super.setProperty(key, param);
     }
 
+    //地址
     @WXComponentProp(name = Constants.Name.SRC)
     public void setSrc(String src) {
         if (TextUtils.isEmpty(src) || getHostView() == null) {
@@ -434,7 +441,8 @@ public class WXVideo extends WXComponent<FrameLayout> {
         }
     }
 
-    @WXComponentProp(name = Constants.Name.AUTO_PLAY)
+    //自动播放
+    @WXComponentProp(name = "autoplay")
     public void setAutoPlay(boolean autoPlay) {
         mAutoPlay = autoPlay;
         if (autoPlay) {
@@ -443,72 +451,63 @@ public class WXVideo extends WXComponent<FrameLayout> {
         }
     }
 
-    private boolean mStopped;
-
+    /**
+     * 播放状态
+     *
+     * @param playstatus
+     */
     @WXComponentProp(name = "playstate")
     public void setPlaystatus(String playstatus) {
-
         if (mPrepared && !mError && !mStopped) {
             if (playstatus.equals(Constants.Value.PLAY)) {
                 mWrapper.start();
-                try {
-                    ;
-                    if (mTimer != null) {
-                        mTimer.cancel();
-                    }
-                    mTimer = new Timer();
-                    mTimer.schedule(new MyTimerTask(), 1000, 1000);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
             } else if (playstatus.equals(Constants.Value.PAUSE)) {
                 mWrapper.pause();
-                if (mTimer != null) {
-                    mTimer.cancel();
-                    mTimer = null;
-                }
             } else if (playstatus.equals(Constants.Value.STOP)) {
                 mWrapper.stopPlayback();
-                if (mTimer != null) {
-                    mTimer.cancel();
-                    mTimer = null;
-                }
                 mStopped = true;
+                // TODO: 停止状态回调
+                onVideoPlayState(Constants.Value.STOP);
+                if (getDomObject().getEvents().contains(Constants.Value.STOP)) {
+                    WXVideo.this.notify(Constants.Value.STOP, Constants.Value.STOP);
+                }
             }
         } else if ((mError || mStopped) && playstatus.equals(Constants.Value.PLAY)) {
             mError = false;
             mWrapper.resume();
-            try {
-                ;
-                if (mTimer != null) {
-                    mTimer.cancel();
-                }
-                mTimer = new Timer();
-                mTimer.schedule(new MyTimerTask(), 1000, 1000);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
             mWrapper.getProgressBar().setVisibility(View.VISIBLE);
         }
     }
 
     /**
      * 设置进度
+     *
      * @param seekTo
      */
     @WXComponentProp(name = "seekto")
     public void seekTo(double seekTo) {
-        if (seekTo < 0) {
+        if (seekTo <= 0) {
+            if(mWrapper.getVideoView().getCurrentPosition()>5){
+                mWrapper.seekTo(5);
+            }
             return;
         }
-        if (seekTo > 1) {
+        if (seekTo >= 1) {
+            if(mWrapper.getVideoView().getCurrentPosition()<mWrapper.getVideoView().getDuration()-5){
+                mWrapper.seekTo(mWrapper.getVideoView().getDuration()-5);
+            }
             return;
         }
-        mWrapper.seekTo((int) (mWrapper.getVideoView().getDuration() * seekTo));
+        int msec = (int) (mWrapper.getVideoView().getDuration() * seekTo);
+        //时差大于一秒
+        if(Math.abs(msec - mWrapper.getVideoView().getCurrentPosition())>1000){
+            mWrapper.seekTo(msec);
+        }
     }
 
     /**
      * 横竖屏切换 landscape 横屏（全屏）  portrait 竖屏（非全屏）none 置空不会有任何操作
+     *
      * @param screen
      */
     @WXComponentProp(name = "fullscreen")
@@ -528,36 +527,25 @@ public class WXVideo extends WXComponent<FrameLayout> {
         }
     }
 
+    //#############播放进度监听线程代码################
+
+    /**
+     * 自定义定时任务
+     */
     class MyTimerTask extends TimerTask {
         @Override
         public void run() {
-            // 发送异步处理消息
-            sendTimerTaskMessage();
-        }
-    }
-
-    /**
-     * 发送异步处理消息
-     */
-    private void sendTimerTaskMessage() {
-        handler.sendEmptyMessage(1);
-    }
-
-    /** 异步消息接收 */
-    public Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what) {
-                case 1:
-                    runTimerTask();
-                    break;
-
-                default:
-                    break;
+            if (getContext() instanceof Activity) {
+                //转到UI线程
+                ((Activity) getContext()).runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        runTimerTask();
+                    }
+                });
             }
         }
-    };
+    }
 
     /**
      * 运行进度查询操作，并回调接口
@@ -568,9 +556,8 @@ public class WXVideo extends WXComponent<FrameLayout> {
                 return;
             if (mMediaPlayer.isPlaying()) {
                 // 获取当前播放进度，和文件总长，并调用 播放进度接口方法。
-//        int time = mMediaPlayer.getCurrentPosition();
-//        int length = mMediaPlayer.getDuration();
-              //  onSysVideoProgressUpdate(mMediaPlayer.getDuration(), mMediaPlayer.getCurrentPosition());
+                // TODO: 播放进度回调
+                onVideoProgressing(mMediaPlayer.getDuration(), mMediaPlayer.getCurrentPosition());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -580,55 +567,43 @@ public class WXVideo extends WXComponent<FrameLayout> {
     //#############播放器状态监听接口回调################
 
 
-    public void onVideoPlay() {
+    public void onVideoPlayState(String state) {
         Map<String, Object> params = new HashMap<>();
-        params.put("state", "play");
+        params.put("state", state);
         WXSDKManager.getInstance().fireEvent(mInstanceId, getRef(), "playstate", params);
+
+        //播放进度监听定时器开关
+        if (TextUtils.equals(Constants.Value.PLAY, state)) {
+            //播放
+            try {
+                if (mTimer != null) {
+                    mTimer.cancel();
+                }
+                mTimer = new Timer();
+                mTimer.schedule(new MyTimerTask(), 100, 100);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            //其他原因播放停止
+            if (mTimer != null) {
+                mTimer.cancel();
+                mTimer = null;
+            }
+        }
     }
 
-
-    public boolean onVideoPrepared() {
-        Map<String, Object> params = new HashMap<>();
-        params.put("state", "prepared");
-        WXSDKManager.getInstance().fireEvent(mInstanceId, getRef(), "playstate", params);
-        return true;
-    }
-
-    public void onVideoPause() {
-        Map<String, Object> params = new HashMap<>();
-        params.put("state", "pause");
-        WXSDKManager.getInstance().fireEvent(mInstanceId, getRef(), "playstate", params);
-    }
-
-    public void onVideostop() {
-        Map<String, Object> params = new HashMap<>();
-        params.put("state", "stop");
-        WXSDKManager.getInstance().fireEvent(mInstanceId, getRef(), "playstate", params);
-    }
-
-    public void onVideoCompletion() {
-        Map<String, Object> params = new HashMap<>();
-        params.put("state", "completion");
-        WXSDKManager.getInstance().fireEvent(mInstanceId, getRef(), "playstate", params);
-    }
-
-    public void onVideoError() {
-        Map<String, Object> params = new HashMap<>();
-        params.put("state", "error");
-        WXSDKManager.getInstance().fireEvent(mInstanceId, getRef(), "playstate", params);
-    }
-
-    public void onVideoBufferingUpdate(int duration, int buffer_position) {
+    public void onVideoLoading(int duration, int buffer_position) {
         Map<String, Object> params = new HashMap<>();
         params.put("duration", duration);
-        params.put("bufferposition", buffer_position);
-        WXSDKManager.getInstance().fireEvent(mInstanceId, getRef(), "bufferingupdate", params);
+        params.put("load", buffer_position);
+        WXSDKManager.getInstance().fireEvent(mInstanceId, getRef(), "loading", params);
     }
 
-    public void onVideoProgressUpdate(int duration, int currentposition) {
+    public void onVideoProgressing(int duration, int progress) {
         Map<String, Object> params = new HashMap<>();
         params.put("duration", duration);
-        params.put("currentposition", currentposition);
-        WXSDKManager.getInstance().fireEvent(mInstanceId, getRef(), "progressupdateq", params);
+        params.put("progress", progress);
+        WXSDKManager.getInstance().fireEvent(mInstanceId, getRef(), "progressing", params);
     }
 }

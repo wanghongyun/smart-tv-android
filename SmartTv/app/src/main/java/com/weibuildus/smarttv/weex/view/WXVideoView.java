@@ -430,12 +430,12 @@ public class WXVideoView extends VideoView implements WXGestureObservable {
       video.setOnCompletionListener(mOnCompletionListener);
       video.setOnVideoPauseListener(mVideoPlayListener);
       //关闭系统控制面板
-      MediaController controller = new MediaController(context);
-      controller.setAnchorView(this);
-      video.setMediaController(controller);
-      controller.setMediaPlayer(video);
-
-      mMediaController = controller;
+//      MediaController controller = new MediaController(context);
+//      controller.setAnchorView(this);
+//      video.setMediaController(controller);
+//      controller.setMediaPlayer(video);
+//
+//      mMediaController = controller;
       mVideoView = video;
 
       if(mUri != null) {
