@@ -213,15 +213,15 @@ import com.taobao.weex.ui.view.gesture.WXGesture;
 import com.taobao.weex.ui.view.gesture.WXGestureObservable;
 import com.weibuildus.smarttv.player.SysVideoPlayer;
 
-public class WXVideoView extends SysVideoPlayer implements WXGestureObservable {
+public class WXVideoViewC extends SysVideoPlayer implements WXGestureObservable {
 
   private WXGesture wxGesture;
 
-  public WXVideoView(Context context) {
+  public WXVideoViewC(Context context) {
     super(context);
   }
 
-  public WXVideoView(Context context, AttributeSet attrs) {
+  public WXVideoViewC(Context context, AttributeSet attrs) {
     super(context, attrs);
   }
 

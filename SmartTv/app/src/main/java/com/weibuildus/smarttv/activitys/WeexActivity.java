@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
@@ -92,13 +93,13 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE){
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏
-        }else{
-            getWindow().clearFlags(
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }
+//        if(getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE){
+//            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                    WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏
+//        }else{
+//            getWindow().clearFlags(
+//                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        }
         //初始化页面和标题
         setContentView(R.layout.activity_weex);
         //初始化View
@@ -132,6 +133,26 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
         }
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        /**
+         * 横竖屏切换
+         */
+        if(getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE){
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏
+            mWXSDKInstance.setSize(getResources().getDisplayMetrics().widthPixels, getResources().getDisplayMetrics().heightPixels);
+        }else{
+            getWindow().clearFlags(
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            mWXSDKInstance.setSize(getResources().getDisplayMetrics().widthPixels, getResources().getDisplayMetrics().heightPixels - getStatusBarHeight());
+        }
+        Map map = new HashMap();
+        map.put("isFullScreen", getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+        mWXSDKInstance.refreshInstance(map);
+    }
+
     /**
      * 刷新页面
      */
@@ -154,9 +175,7 @@ public class WeexActivity extends AppCompatActivity implements IWXRenderListener
         mWXSDKInstance = new WXSDKInstance(this);
         mWXSDKInstance.registerRenderListener(this);
         //加载网络js
-        int height = getRequestedOrientation()== ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE?(getResources().getDisplayMetrics().heightPixels)
-                :(getResources().getDisplayMetrics().heightPixels-getStatusBarHeight());
-        mWXSDKInstance.renderByUrl("Bandou_Weex", getPageParameter(), null, data, -1, height,
+        mWXSDKInstance.renderByUrl("Bandou_Weex", getPageParameter(), null, data,getResources().getDisplayMetrics().widthPixels, getResources().getDisplayMetrics().heightPixels-getStatusBarHeight(),
                 WXRenderStrategy.APPEND_ASYNC);
         //关闭错误页和内容页，展示等待页和空白标题
         weexErrorLayout.setVisibility(View.GONE);

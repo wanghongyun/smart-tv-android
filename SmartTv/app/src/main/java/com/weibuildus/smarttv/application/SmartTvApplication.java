@@ -30,6 +30,7 @@ import com.weibuildus.smarttv.weex.component.WXListComponent;
 import com.weibuildus.smarttv.weex.component.WXScroller;
 import com.weibuildus.smarttv.weex.component.WXTextarea;
 import com.weibuildus.smarttv.weex.component.WXVideo;
+import com.weibuildus.smarttv.weex.component.WXVideoC;
 import com.weibuildus.smarttv.weex.component.WXWeb;
 import com.weibuildus.smarttv.weex.module.SmartTvModule;
 

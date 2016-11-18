@@ -205,49 +205,35 @@
 package com.weibuildus.smarttv.weex.component;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.Handler;
-import android.os.Message;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
 
-import com.taobao.weex.WXEnvironment;
 import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.WXSDKManager;
 import com.taobao.weex.common.Component;
-import com.taobao.weex.common.Constants;
 import com.taobao.weex.dom.WXDomObject;
 import com.taobao.weex.ui.component.WXComponent;
 import com.taobao.weex.ui.component.WXComponentProp;
 import com.taobao.weex.ui.component.WXVContainer;
-import com.taobao.weex.utils.WXLogUtils;
-import com.taobao.weex.utils.WXUtils;
 import com.weibuildus.smarttv.player.SysVideoPlayer;
-import com.weibuildus.smarttv.weex.view.WXVideoView;
+import com.weibuildus.smarttv.weex.view.WXVideoViewC;
 import com.weibuildus.smarttv.weex.view.WXWebView;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
 
 @Component(lazyload = false)
-public class WXVideo extends WXComponent implements SysVideoPlayer.OnSysVideoPlayerEventListener {
+public class WXVideoC extends WXComponent implements SysVideoPlayer.OnSysVideoPlayerEventListener {
 
-    private WXVideoView wxVideoView;
+    private WXVideoViewC wxVideoView;
 
-    public WXVideo(WXSDKInstance instance, WXDomObject dom, WXVContainer parent, boolean isLazy) {
+    public WXVideoC(WXSDKInstance instance, WXDomObject dom, WXVContainer parent, boolean isLazy) {
         super(instance, dom, parent, isLazy);
     }
 
     @Override
     protected void initView() {
-        mHost = wxVideoView = new WXVideoView(mContext);
+        mHost = wxVideoView = new WXVideoViewC(mContext);
     }
 
     @Override
