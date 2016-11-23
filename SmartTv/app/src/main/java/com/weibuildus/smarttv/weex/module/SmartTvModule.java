@@ -1,6 +1,7 @@
 package com.weibuildus.smarttv.weex.module;
 
 
+import com.google.gson.Gson;
 import com.taobao.weex.WXSDKManager;
 import com.taobao.weex.common.WXModule;
 import com.taobao.weex.common.WXModuleAnno;
@@ -60,20 +61,27 @@ public class SmartTvModule extends WXModule {
      * @param value
      */
     @WXModuleAnno
-    public void setKeyValue(String key, String value) {
-        KeyStore.getInstance(mWXSDKInstance.getContext()).put("BandouModule_" + key, value);
+    public void setKeyValue(String key, Map<String,Object> value) {
+        if(value==null||value.size()==0){
+            KeyStore.getInstance(mWXSDKInstance.getContext()).put("CustomModule_" + key, null);
+        }else{
+            KeyStore.getInstance(mWXSDKInstance.getContext()).put("CustomModule_" + key, new Gson().toJson(value));
+        }
     }
 
     /**
      * 获取本地存储的键值对
      * @param key
-     * @param defValue
      * @param callbackId
      */
     @WXModuleAnno
-    public void getKeyValue(String key, String defValue,  String callbackId) {
-        String value =  KeyStore.getInstance(mWXSDKInstance.getContext()).get("BandouModule_" + key, defValue);
-        WXSDKManager.getInstance().getWXBridgeManager().callback(mWXSDKInstance.getInstanceId(), callbackId, value);
+    public void getKeyValue(String key, String callbackId) {
+        String value =  KeyStore.getInstance(mWXSDKInstance.getContext()).get("CustomModule_" + key, null);
+        if(value == null){
+            WXSDKManager.getInstance().getWXBridgeManager().callback(mWXSDKInstance.getInstanceId(), callbackId, new Gson().fromJson("{}", Map.class));
+        }else{
+            WXSDKManager.getInstance().getWXBridgeManager().callback(mWXSDKInstance.getInstanceId(), callbackId, new Gson().fromJson(value, Map.class));
+        }
     }
 
     /**
